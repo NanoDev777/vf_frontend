@@ -16,7 +16,7 @@ import {
 
 const configStore = useConfigStore()
 const currentLayout = ref(configStore.isVerticalNavCollapsed ? 'collapsed' : configStore.appContentLayoutNav)
-
+const userData = useCookie('userData')
 const setCollapse = () => {
   configStore.isVerticalNavCollapsed = !configStore.isVerticalNavCollapsed
   if(configStore.isVerticalNavCollapsed){
@@ -64,23 +64,6 @@ const formattedTime = computed(() => {
   return currentDate.value.toLocaleTimeString()
 })
 
-const items = [
-        {
-          title: 'Dashboard',
-          disabled: false,
-          href: 'breadcrumbs_dashboard',
-        },
-        {
-          title: 'Link 1',
-          disabled: false,
-          href: 'breadcrumbs_link_1',
-        },
-        {
-          title: 'Link 2',
-          disabled: true,
-          href: 'breadcrumbs_link_2',
-        },
-      ];
 </script>
 <template>
   <VerticalNavLayout :nav-items="navItems">
@@ -123,8 +106,8 @@ const items = [
         <VSpacer />
 
         <!-- <NavbarThemeSwitcher /> -->
-        <NavbarShortcuts />
-        <NavBarNotifications class="me-2" />
+        <NavbarShortcuts v-if="userData.role != 'Invitado'" />
+        <NavBarNotifications v-if="userData.role != 'Invitado'" class="me-2" />
         <UserProfile />
       </div>
     </template>

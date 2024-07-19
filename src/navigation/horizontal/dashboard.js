@@ -15,7 +15,7 @@ export default [
       },
       {
         title: 'CRM',
-        to: 'dashboards-crm',
+        to: 'dashboard',
         icon: { icon: 'tabler-3d-cube-sphere' },
       },
       {

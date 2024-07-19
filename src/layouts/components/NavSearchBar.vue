@@ -1,7 +1,7 @@
 <script setup>
-import Shepherd from 'shepherd.js'
-import { withQuery } from 'ufo'
-import { useConfigStore } from '@core/stores/config'
+import { useConfigStore } from '@core/stores/config';
+import Shepherd from 'shepherd.js';
+import { withQuery } from 'ufo';
 
 defineOptions({
   // 👉 Is App Search Bar Visible
@@ -24,7 +24,7 @@ const suggestionGroups = [
       {
         icon: 'tabler-chart-bubble',
         title: 'CRM',
-        url: { name: 'dashboards-crm' },
+        url: { name: 'dashboard' },
       },
       {
         icon: 'tabler-file',

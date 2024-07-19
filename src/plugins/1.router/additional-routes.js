@@ -13,64 +13,41 @@ export const redirects = [
       const userType = userData.value?.type
       const userRole = userData.value?.role
       if (userType == 1 && userRole != 'Invitado'){
-        return { name: 'dashboards-crm' }
+        return { name: 'dashboard' }
       } else if (userType == 2 && userRole != 'Invitado') {
-        return { name: 'dashboards-crm' }
+        return { name: 'dashboard' }
       } else if (userType == 1 && userRole == 'Invitado') {
-        return { name: 'access-control' }
+        return { name: 'home' }
       } else {
         return { name: 'login', query: to.query }
       }
     },
   },
-  {
-    path: '/pages/user-profile',
-    name: 'pages-user-profile',
-    redirect: () => ({ name: 'pages-user-profile-tab', params: { tab: 'profile' } }),
-  },
-  {
-    path: '/pages/account-settings',
-    name: 'pages-account-settings',
-    redirect: () => ({ name: 'pages-account-settings-tab', params: { tab: 'account' } }),
-  },
+
+  
 ]
 export const routes = [
-  // Email filter
+  //USER
   {
-    path: '/apps/email/filter/:filter',
-    name: 'apps-email-filter',
-    component: emailRouteComponent,
-    meta: {
-      navActiveLink: 'apps-email',
-      layoutWrapperClasses: 'layout-content-height-fixed',
-    },
+    path: '/home',
+    name: 'home',
+    meta: { action: 'index', subject: 'Home'},
+    component: () => import('@/views/home/index.vue'),
   },
 
-  // Email label
   {
-    path: '/apps/email/label/:label',
-    name: 'apps-email-label',
-    component: emailRouteComponent,
-    meta: {
-      // contentClass: 'email-application',
-      navActiveLink: 'apps-email',
-      layoutWrapperClasses: 'layout-content-height-fixed',
-    },
+    path: '/dashboard',
+    name: 'dashboard',
+    meta: { action: 'index', subject: 'Dashboard'},
+    component: () => import('@/views/dashboards/crm/CrmActiveProject.vue'),
   },
+
   {
-    path: '/dashboards/logistics',
-    name: 'dashboards-logistics',
-    component: () => import('@/pages/apps/logistics/dashboard.vue'),
-  },
-  {
-    path: '/dashboards/academy',
-    name: 'dashboards-academy',
-    component: () => import('@/pages/apps/academy/dashboard.vue'),
-  },
-  {
-    path: '/apps/ecommerce/dashboard',
-    name: 'apps-ecommerce-dashboard',
-    component: () => import('@/pages/dashboards/ecommerce.vue'),
+    path: '/user/profile/:id',
+    name: 'user-profile',
+    meta: { action: 'index', subject: 'Profile'},
+    component: () => import('@/pages/apps/user/view/[id].vue'),
+    props: true
   },
 
   //ERP

@@ -10,7 +10,7 @@ export const db = {
           title: 'Analytics Dashboard',
         },
         {
-          url: { name: 'dashboards-crm' },
+          url: { name: 'dashboard' },
           icon: 'tabler-file-analytics',
           title: 'CRM Dashboard',
         },

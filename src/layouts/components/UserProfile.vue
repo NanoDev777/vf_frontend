@@ -41,7 +41,7 @@ const userProfileList = [
     icon: 'tabler-user',
     title: 'Perfil',
     to: {
-      name: 'apps-user-view-id',
+      name: 'user-profile',
       params: { id: 21 },
     },
   },

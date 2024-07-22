@@ -12,10 +12,15 @@ import { useAbility } from '@casl/vue'
  */
 export const can = (action, subject) => {
   const vm = getCurrentInstance()
+  const ability = useAbility()
   if (!vm)
     return false
+
+  if (ability.can('manage', 'all'))
+    if (vm.proxy.item.subject == 'Home' || vm.proxy.item.subject == 'MyPatient' || vm.proxy.item.subject == 'MyQueries' || vm.proxy.item.subject == 'Mytreatments')
+      return false
+
   const localCan = vm.proxy && '$can' in vm.proxy
-  
   return localCan ? vm.proxy?.$can(action, subject) : true
 }
 

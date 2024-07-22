@@ -19,7 +19,6 @@ const logout = async () => {
   userData.value = null
 
   // Redirect to login page
-  await router.push('/login')
 
   // ℹ️ We had to remove abilities in then block because if we don't nav menu items mutation is visible while redirecting user to login page
 
@@ -28,6 +27,8 @@ const logout = async () => {
 
   // Reset ability to initial ability
   ability.update([])
+
+  window.location.href = '/login';
 }
 
 const addPrefixToBase64 = (base64String) => {

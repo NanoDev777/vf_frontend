@@ -30,9 +30,9 @@ const notifications = ref([
 <template>
   <VCard class="user-tab-notification">
     <VCardItem>
-      <VCardTitle>Notifications</VCardTitle>
+      <VCardTitle>Notificaciones</VCardTitle>
       <p class="text-base mt-2 mb-0">
-        You will receive notification for the below selected items.
+        Recibirá una notificación sobre los artículos seleccionados a continuación.
       </p>
     </VCardItem>
     <VCardText>
@@ -40,16 +40,16 @@ const notifications = ref([
         <thead>
           <tr>
             <th scope="col">
-              TYPE
+              TIPO
             </th>
             <th scope="col">
-              EMAIL
+              CORREO
             </th>
             <th scope="col">
-              BROWSER
+              WHATSAPP
             </th>
             <th scope="col">
-              APP
+              WEB
             </th>
           </tr>
         </thead>
@@ -75,12 +75,12 @@ const notifications = ref([
     </VCardText>
 
     <VCardText class="d-flex flex-wrap gap-4">
-      <VBtn>Save changes</VBtn>
+      <VBtn>Guardar Cambios</VBtn>
       <VBtn
         color="secondary"
         variant="tonal"
       >
-        Discard
+        Cancelar
       </VBtn>
     </VCardText>
   </VCard>

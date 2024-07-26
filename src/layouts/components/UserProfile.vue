@@ -1,7 +1,10 @@
 <script setup>
+import AuthService from '@/services/auth.service';
+import { useLoaderStore } from '@/stores/loader';
 import { useUserStore } from '@/stores/user';
 import { PerfectScrollbar } from 'vue3-perfect-scrollbar';
 
+const loaderStore = useLoaderStore();
 const router = useRouter()
 const ability = useAbility()
 
@@ -11,24 +14,21 @@ const userStore = useUserStore();
 const avatar = computed(() => userStore.avatar);
 
 const logout = async () => {
-
-  // Remove "accessToken" from cookie
-  useCookie('accessToken').value = null
-  userStore.clearAvatar();
-  // Remove "userData" from cookie
-  userData.value = null
-
-  // Redirect to login page
-
-  // ℹ️ We had to remove abilities in then block because if we don't nav menu items mutation is visible while redirecting user to login page
-
-  // Remove "userAbilities" from cookie
-  useCookie('userAbilityRules').value = null
-
-  // Reset ability to initial ability
-  ability.update([])
-
-  window.location.href = '/login';
+  try {
+    loaderStore.showLoader();
+    const response = await AuthService.logout();
+    if (response.status == 200) {
+      window.location.href = '/login';
+      useCookie('accessToken').value = null
+      userStore.clearAvatar();
+      userData.value = null
+      useCookie('userAbilityRules').value = null
+      ability.update([])
+      // await router.push('/login')
+    }
+  } catch (err) {
+    loaderStore.hideLoader();
+  }
 }
 
 const addPrefixToBase64 = (base64String) => {

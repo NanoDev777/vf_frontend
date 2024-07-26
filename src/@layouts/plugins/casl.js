@@ -17,7 +17,7 @@ export const can = (action, subject) => {
     return false
 
   if (ability.can('manage', 'all'))
-    if (vm.proxy.item.subject == 'Home' || vm.proxy.item.subject == 'MyPatient' || vm.proxy.item.subject == 'MyQueries' || vm.proxy.item.subject == 'Mytreatments')
+    if (vm.proxy.item.subject == 'Home' || vm.proxy.item.subject == 'MyPatients' || vm.proxy.item.subject == 'MyQueries' || vm.proxy.item.subject == 'MyTreatments')
       return false
 
   const localCan = vm.proxy && '$can' in vm.proxy

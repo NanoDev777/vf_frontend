@@ -110,36 +110,6 @@ const resolveUserProgressVariant = progress => {
 <template>
   <VRow>
     <VCol cols="12">
-      <VCard title="User's Projects List">
-        <VCardText>
-          <div class="d-flex">
-            <AppSelect
-              v-model="options.itemsPerPage"
-              :items="[
-                { value: 5, title: '5' },
-                { value: 10, title: '10' },
-                { value: 50, title: '50' },
-                { value: 100, title: '100' },
-                { value: -1, title: 'All' },
-              ]"
-              style="inline-size: 6.25rem;"
-            />
-            <div class="flex-grow-1" />
-            <AppTextField
-              v-model="search"
-              placeholder="Search..."
-            />
-          </div>
-        </VCardText>
-        <VDivider />
-        <!-- 👉 User Project List Table -->
-
-        <!-- SECTION Datatable -->
-        <!-- !SECTION -->
-      </VCard>
-    </VCol>
-
-    <VCol cols="12">
       <!-- 👉 Activity timeline -->
       <VCard title="User Activity Timeline">
         <VCardText>

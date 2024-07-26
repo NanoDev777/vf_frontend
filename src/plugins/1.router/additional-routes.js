@@ -34,14 +34,12 @@ export const routes = [
     meta: { action: 'index', subject: 'Home'},
     component: () => import('@/views/home/index.vue'),
   },
-
   {
     path: '/dashboard',
     name: 'dashboard',
     meta: { action: 'index', subject: 'Dashboard'},
     component: () => import('@/views/dashboards/crm/CrmActiveProject.vue'),
   },
-
   {
     path: '/user/profile/:id',
     name: 'user-profile',
@@ -52,17 +50,46 @@ export const routes = [
 
   //ERP
   {
-    path: '/patient/listing',
-    name: 'patient-listing',
-    meta: { action: 'index', subject: 'Patient'},
-    component: () => import('@/views/patient/listing/index.vue'),
+    path: '/patients/listing',
+    name: 'patients-listing',
+    meta: { action: 'index', subject: 'Patients'},
+    component: () => import('@/views/patients/listing/index.vue'),
   },
-
   {
-    path: '/patient/detail/:id',
+    path: '/my-patients/listing',
+    name: 'my-patients-listing',
+    meta: { action: 'index', subject: 'MyPatients'},
+    component: () => import('@/views/patients/guest/index.vue'),
+  },
+  {
+    path: '/queries/listing',
+    name: 'queries-listing',
+    meta: { action: 'index', subject: 'Queries'},
+    component: () => import('@/views/queries/listing/index.vue'),
+  },
+  {
+    path: '/my-queries/listing',
+    name: 'my-queries-listing',
+    meta: { action: 'index', subject: 'MyQueries'},
+    component: () => import('@/views/queries/guest/index.vue'),
+  },
+  {
+    path: '/treatments/listing',
+    name: 'treatments-listing',
+    meta: { action: 'index', subject: 'Treatments'},
+    component: () => import('@/views/treatments/listing/index.vue'),
+  },
+  {
+    path: '/my-treatments/listing',
+    name: 'my-treatments-listing',
+    meta: { action: 'index', subject: 'MyTreatments'},
+    component: () => import('@/views/treatments/guest/index.vue'),
+  },
+  {
+    path: '/patients/detail/:id',
     name: 'patient-detail',
-    meta: { action: 'detail', subject: 'Patient'},
-    component: () => import('@/views/patient/detail/index.vue'),
+    meta: { action: 'detail', subject: 'Patients'},
+    component: () => import('@/views/patients/detail/index.vue'),
     props: true
   },
   {
@@ -79,16 +106,16 @@ export const routes = [
     props: true
   },
   {
-    path: '/therapist/listing',
-    name: 'therapist-listing',
-    meta: { action: 'index', subject: 'Therapist'},
-    component: () => import('@/views/therapist/listing/index.vue'),
+    path: '/therapists/listing',
+    name: 'therapists-listing',
+    meta: { action: 'index', subject: 'Therapists'},
+    component: () => import('@/views/therapists/listing/index.vue'),
   },
   {
-    path: '/therapist/detail/:id',
+    path: '/therapists/detail/:id',
     name: 'therapist-detail',
-    meta: { action: 'detail', subject: 'Therapist'},
-    component: () => import('@/views/therapist/detail/index.vue'),
+    meta: { action: 'detail', subject: 'Therapists'},
+    component: () => import('@/views/therapists/detail/index.vue'),
     props: true
   }
 ]

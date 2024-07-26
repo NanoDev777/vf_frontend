@@ -9,19 +9,14 @@ const { isDialogVisible } = storeToRefs(loaderStore);
 <template>
   <VDialog
     v-model="isDialogVisible"
-    width="300"
+    width="100"
     persistent
   >
-    <VCard
-      color="indigo"
-      width="300"
-    >
-      <VCardText class="pt-3">
-        <v-progress-linear
-          color="teal"
-          indeterminate
-        ></v-progress-linear>
-      </VCardText>
-    </VCard>
+    <v-progress-circular
+      :size="70"
+      :width="5"
+      color="primary"
+      indeterminate
+    ></v-progress-circular>
   </VDialog>
 </template>

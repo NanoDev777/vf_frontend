@@ -130,7 +130,7 @@ const cropUploadFail = (imgDataUrlValue, field) => {
           </VChip>
         </VCardText>
 
-        <VCardText>
+        <VCardText v-if="props.userData.role != 'Invitado'">
           <div class="d-flex justify-center flex-wrap gap-5">
             <!-- 👉 Done task -->
             <div class="d-flex align-center me-8">

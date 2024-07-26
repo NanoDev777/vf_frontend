@@ -2,85 +2,14 @@
 
 const isNewPasswordVisible = ref(false)
 const isConfirmPasswordVisible = ref(false)
-const smsVerificationNumber = ref('+1(968) 819-2547')
-const isTwoFactorDialogOpen = ref(false)
 
-const recentDeviceHeader = [
-  {
-    title: 'BROWSER',
-    key: 'browser',
-  },
-  {
-    title: 'DEVICE',
-    key: 'device',
-  },
-  {
-    title: 'LOCATION',
-    key: 'location',
-  },
-  {
-    title: 'RECENT ACTIVITY',
-    key: 'activity',
-  },
-]
-
-const recentDevices = [
-  {
-    browser: ' Chrome on Windows',
-    icon: 'tabler-brand-windows',
-    color: 'info',
-    device: 'HP Spectre 360',
-    location: 'Switzerland',
-    activity: '10, July 2021 20:07',
-  },
-  {
-    browser: 'Chrome on iPhone',
-    icon: 'tabler-device-mobile',
-    color: 'error',
-    device: 'iPhone 12x',
-    location: 'Australia',
-    activity: '13, July 2021 10:10',
-  },
-  {
-    browser: 'Chrome on Android',
-    icon: 'tabler-brand-android',
-    color: 'success',
-    device: 'Oneplus 9 Pro',
-    location: 'Dubai',
-    activity: '14, July 2021 15:15',
-  },
-  {
-    browser: 'Chrome on macOS',
-    icon: 'tabler-brand-apple',
-    color: 'secondary',
-    device: 'Apple iMac',
-    location: 'India',
-    activity: '16, July 2021 16:17',
-  },
-  {
-    browser: 'Chrome on Windows',
-    icon: 'tabler-brand-windows',
-    color: 'info',
-    device: 'HP Spectre 360',
-    location: 'Switzerland',
-    activity: '20, July 2021 21:01',
-  },
-  {
-    browser: 'Chrome on Android',
-    icon: 'tabler-brand-android',
-    color: 'success',
-    device: 'Oneplus 9 Pro',
-    location: 'Dubai',
-    activity: '20, July 2021 21:01',
-  },
-]
 </script>
 
 <template>
   <VRow>
     <VCol cols="12">
       <!-- 👉 Change password -->
-      <VCard title="Change Password">
+      <VCard title="Cambiar la contraseña">
         <VCardText>
           <VAlert
             variant="tonal"
@@ -88,9 +17,9 @@ const recentDevices = [
             class="mb-4"
           >
             <VAlertTitle class="mb-2">
-              Ensure that these requirements are met
+              Asegúrese de que se cumplan estos requisitos
             </VAlertTitle>
-            <span>Minimum 8 characters long, uppercase & symbol</span>
+            <span>Mínimo 8 caracteres, mayúsculas y símbolos</span>
           </VAlert>
 
           <VForm @submit.prevent="() => { }">
@@ -100,7 +29,7 @@ const recentDevices = [
                 md="6"
               >
                 <AppTextField
-                  label="New Password"
+                  label="Nueva Contraseña"
                   placeholder="············"
                   :type="isNewPasswordVisible ? 'text' : 'password'"
                   :append-inner-icon="isNewPasswordVisible ? 'tabler-eye-off' : 'tabler-eye'"
@@ -112,7 +41,7 @@ const recentDevices = [
                 md="6"
               >
                 <AppTextField
-                  label="Confirm Password"
+                  label="Confirmar Contraseña"
                   placeholder="············"
                   :type="isConfirmPasswordVisible ? 'text' : 'password'"
                   :append-inner-icon="isConfirmPasswordVisible ? 'tabler-eye-off' : 'tabler-eye'"
@@ -122,7 +51,7 @@ const recentDevices = [
 
               <VCol cols="12">
                 <VBtn type="submit">
-                  Change Password
+                  Actualizar
                 </VBtn>
               </VCol>
             </VRow>
@@ -130,67 +59,6 @@ const recentDevices = [
         </VCardText>
       </VCard>
     </VCol>
-
-    <VCol cols="12">
-      <!-- 👉 Two step verification -->
-      <VCard title="Two-step verification">
-        <template #subtitle>
-          <span class="text-base">
-            Keep your account secure with authentication step.
-          </span>
-        </template>
-        <VCardText>
-          <div>
-            <h4 class="font-weight-medium">
-              SMS
-            </h4>
-
-            <VTextField
-              variant="underlined"
-              :model-value="smsVerificationNumber"
-            >
-              <template #append-inner>
-                <IconBtn
-                  size="small"
-                  variant="text"
-                >
-                  <VIcon
-                    icon="tabler-edit"
-                    @click="isTwoFactorDialogOpen = true"
-                  />
-                </IconBtn>
-                <IconBtn
-                  size="small"
-                  variant="text"
-                >
-                  <VIcon icon="tabler-trash" />
-                </IconBtn>
-              </template>
-            </VTextField>
-          </div>
-
-          <p class="mb-0 mt-4">
-            Two-factor authentication adds an additional layer of security to your account by requiring more than just a
-            password to log in. <a
-              href="javascript:void(0)"
-              class="text-decoration-none"
-            >Learn more</a>.
-          </p>
-        </VCardText>
-      </VCard>
-    </VCol>
-
-    <VCol cols="12">
-      <!-- 👉 Recent devices -->
-      <VCard title="Recent devices">
-        <VDivider />
-      </VCard>
-    </VCol>
   </VRow>
 
-  <!-- 👉 Enable One Time Password Dialog -->
-  <TwoFactorAuthDialog
-    v-model:isDialogVisible="isTwoFactorDialogOpen"
-    :sms-code="smsVerificationNumber"
-  />
 </template>

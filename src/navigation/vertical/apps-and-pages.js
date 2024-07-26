@@ -3,30 +3,44 @@ export default [
   {
     title: 'Pacientes',
     icon: { icon: 'tabler-user-check' },
-    to: 'patient-listing',
+    to: 'patients-listing',
     action: 'index',
-    subject: 'Patient'
+    subject: 'Patients'
   },
   {
     title: 'Mis Pacientes',
     icon: { icon: 'tabler-user-check' },
-    to: 'patient-listing',
+    to: 'my-patients-listing',
     action: 'index',
-    subject: 'MyPatient'
+    subject: 'MyPatients'
+  },
+  {
+    title: 'Consultas',
+    icon: { icon: 'tabler-address-book' },
+    to: 'queries-listing',
+    action: 'index',
+    subject: 'Queries'
   },
   {
     title: 'Mis Consultas',
     icon: { icon: 'tabler-address-book' },
-    to: 'patient-listing',
+    to: 'my-queries-listing',
     action: 'index',
     subject: 'MyQueries'
   },
   {
+    title: 'Tratamientos',
+    icon: { icon: 'tabler-calendar-month' },
+    to: 'treatments-listing',
+    action: 'index',
+    subject: 'Treatments'
+  },
+  {
     title: 'Mis Tratamientos',
     icon: { icon: 'tabler-calendar-month' },
-    to: 'patient-listing',
+    to: 'my-treatments-listing',
     action: 'index',
-    subject: 'Mytreatments'
+    subject: 'MyTreatments'
   },
   {
     title: 'Clientes',
@@ -38,9 +52,9 @@ export default [
   {
     title: 'Terapistas',
     icon: { icon: 'tabler-empathize' },
-    to: 'therapist-listing',
+    to: 'therapists-listing',
     action: 'index',
-    subject: 'Therapist'
+    subject: 'Therapists'
   },
   {
     title: 'Roles y Permisos',

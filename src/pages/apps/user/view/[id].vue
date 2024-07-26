@@ -6,12 +6,9 @@ import UserTabSecurity from '@/views/apps/user/view/UserTabSecurity.vue';
 
 const route = useRoute('apps-user-view-id')
 const userTab = ref(null)
+const userData = useCookie('userData')
 
 const tabs = [
-  {
-    icon: 'tabler-user-check',
-    title: 'Cuenta',
-  },
   {
     icon: 'tabler-lock',
     title: 'Seguridad',
@@ -22,8 +19,13 @@ const tabs = [
   },
 ]
 
-// const { data: userData } = await useApi(`/apps/users/${ route.params.id }`)
-const userData = useCookie('userData')
+if (userData._value.role != 'Invitado') {
+  tabs.unshift({
+    icon: 'tabler-user-check',
+    title: 'Cuenta',
+  });
+}
+
 </script>
 
 <template>
@@ -61,8 +63,8 @@ const userData = useCookie('userData')
         v-model="userTab"
         class="mt-6 disable-tab-transition"
         :touch="false"
-      >
-        <VWindowItem>
+      > 
+        <VWindowItem v-if="userData.role != 'Invitado'">
           <UserTabAccount />
         </VWindowItem>
 
